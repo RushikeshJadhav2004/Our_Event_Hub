@@ -1,10 +1,19 @@
 # 🎉 Our Event Hub
 
-
-
 **“Discover. Connect. Celebrate.”**  
 
 Our Event Hub is a modern **event discovery and hosting platform**. Users can explore nearby events, view details, contact organizers directly, and even host their own events. Say goodbye to missing celebrations and third-party hassle!
+
+## 📸 Screenshots
+
+![Home Page](https://github.com/user-attachments/assets/15befd41-6911-4341-bc86-0fdfaf3759e1)  
+
+![Event Details](https://github.com/user-attachments/assets/67c2f2b2-404a-4a2f-a80f-07b275d4ea04)  
+
+![Add Event 1](https://github.com/user-attachments/assets/dc137d1e-ff3e-47f0-8129-d3b26b787dad)  
+
+![Add Event 2](https://github.com/user-attachments/assets/961c8ca5-de32-47a2-a6ce-e2301e912cff)
+
 
 ---
 
