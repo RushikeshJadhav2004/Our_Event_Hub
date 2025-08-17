@@ -1,6 +1,6 @@
 # 🎉 Our Event Hub
 
-![Website Banner](path/to/banner.png)
+
 
 **“Discover. Connect. Celebrate.”**  
 
@@ -51,8 +51,8 @@ Our Event Hub is a modern **event discovery and hosting platform**. Users can ex
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/our-event-hub.git
-cd our-event-hub
+[git clone https://github.com/yourusername/our-event-hub.git
+cd our-event-hub](https://github.com/RushikeshJadhav2004/Our_Event_Hub.git)
 ```
 ##Create .env file and add your credential
 ```
