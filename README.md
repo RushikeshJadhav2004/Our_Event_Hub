@@ -40,19 +40,6 @@ Our Event Hub is a modern **event discovery and hosting platform**. Users can ex
 
 ---
 
-## 📸 Screenshots
-
-![Home Page](<img width="1352" height="634" alt="Screenshot 2025-08-18 025324" src="https://github.com/user-attachments/assets/15befd41-6911-4341-bc86-0fdfaf3759e1" />
-)  
-![Event Details](<img width="1184" height="651" alt="Screenshot 2025-08-18 025358" src="https://github.com/user-attachments/assets/67c2f2b2-404a-4a2f-a80f-07b275d4ea04" />
-)  
-![Add Event](<img width="1218" height="668" alt="Screenshot 2025-08-18 025628" src="https://github.com/user-attachments/assets/dc137d1e-ff3e-47f0-8129-d3b26b787dad" />
-
-)
-![Add Event](<img width="1175" height="676" alt="Screenshot 2025-08-18 025418" src="https://github.com/user-attachments/assets/961c8ca5-de32-47a2-a6ce-e2301e912cff" />
-)
-
-*(Replace with your actual screenshots)*
 
 ---
 
