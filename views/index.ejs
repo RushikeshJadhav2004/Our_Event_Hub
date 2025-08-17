@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Event Hub</title>
+   <link rel="icon" type="image/png" href="../uploads/eventhub.webp">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .animate-wave {
+      animation: wave 1.5s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-white text-gray-800">
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-100 via-white to-gray-200">
+    <div class="absolute inset-0 bg-[url('/placeholder.svg?height=800&width=1200')] bg-cover bg-center opacity-10">
+    </div>
+    <div class="relative container mx-auto px-4 py-24 text-center">
+      <div class="animate-wave">
+        <h1 class="font-serif text-5xl md:text-7xl font-bold text-red-600 mb-6">Our Event Hub</h1>
+      </div>
+      <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+       From concerts to meetups, explore trending events and never miss out on what matters to you.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/events"
+          class="bg-red-600 text-white text-lg px-8 py-4 rounded-lg hover:scale-105 transition-transform">Find Events
+          Near You</a>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-red-600 font-serif">3+</div>
+          <div class="text-sm text-gray-600">Days of Freedom</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-blue-600 font-serif">5+</div>
+          <div class="text-sm text-gray-600">States</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-red-600 font-serif">999+</div>
+          <div class="text-sm text-gray-600">Viewers</div>
+        </div>
+        <div>
+          <div class="text-3xl md:text-4xl font-bold text-blue-600 font-serif">∞</div>
+          <div class="text-sm text-gray-600">Liberty & Justice</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Events -->
+  <section class="py-20">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-red-600 mb-4">
+        Celebrate In Your City
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+       Discover the most exciting events happening around you and never miss out on the experiences that matter.
+      </p>
+    </div>
+
+    <!-- Event Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Event Card 1 -->
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="h-48 rounded-t-lg relative overflow-hidden">
+          <img src="../uploads/img1.jpg" alt="Grand Fireworks Spectacular"
+            class="w-full h-full object-cover" />
+          <span class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 text-sm rounded">Featured</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-serif text-xl font-bold mb-2">Grand Fireworks Spectacular</h3>
+          <p class="text-gray-500 mb-4">📍 Pune, India</p>
+          <div class="space-y-2 text-gray-600 text-sm">
+            <p>📅 July 4th, 2025</p>
+            <p>⏰ 9:00 PM - 10:30 PM</p>
+            <p>👥 50,000+ Expected</p>
+          </div>
+          <a href="/events" class="block bg-red-600 text-white text-center mt-4 py-3 rounded-lg">View Events</a>
+        </div>
+      </div>
+
+       <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="h-48 rounded-t-lg relative overflow-hidden">
+          <img src="../uploads/img2.jpg" alt="Grand Fireworks Spectacular"
+            class="w-full h-full object-cover" />
+          <span class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 text-sm rounded">Featured</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-serif text-xl font-bold mb-2">Seminar</h3>
+          <p class="text-gray-500 mb-4">📍 Pune, India</p>
+          <div class="space-y-2 text-gray-600 text-sm">
+            <p>📅 July 4th, 2025</p>
+            <p>⏰ 9:00 PM - 10:30 PM</p>
+            <p>👥 50,000+ Expected</p>
+          </div>
+          <a href="/events" class="block bg-red-600 text-white text-center mt-4 py-3 rounded-lg">View Events</a>
+        </div>
+      </div>
+
+       <div class="bg-white rounded-lg shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+        <div class="h-48 rounded-t-lg relative overflow-hidden">
+          <img src="../uploads/img3.jpg" alt="Grand Fireworks Spectacular"
+            class="w-full h-full object-cover" />
+          <span class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 text-sm rounded">Featured</span>
+        </div>
+        <div class="p-6">
+          <h3 class="font-serif text-xl font-bold mb-2">Community BBQ & Festival</h3>
+          <p class="text-gray-500 mb-4">📍 Pune, India</p>
+          <div class="space-y-2 text-gray-600 text-sm">
+            <p>📅 July 4th, 2025</p>
+            <p>⏰ 9:00 PM - 10:30 PM</p>
+            <p>👥 50,000+ Expected</p>
+          </div>
+          <a href="/events" class="block bg-red-600 text-white text-center mt-4 py-3 rounded-lg">View Events</a>
+        </div>
+      </div>
+
+      <!-- Repeat for other event cards -->
+    </div>
+
+    <!-- Centered Button (moved OUTSIDE grid) -->
+    <div class="text-center mt-12">
+      <a href="/events"
+        class="border border-red-600 text-red-600 text-lg px-8 py-4 rounded-lg hover:bg-red-600 hover:text-white transition-transform">
+        View All Events
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Historical Timeline -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-red-600 mb-4">Stay updated with trending events nearby.</h2>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          Find the perfect events happening in your city and turn ordinary days into extraordinary experiences.
+        </p>
+      </div>
+      <div class="max-w-4xl mx-auto space-y-8">
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl">★</div>
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-red-600 mb-2">Neon Glow Party</h3>
+            <p class="text-gray-600">
+              Immerse yourself in a world of glowing lights and pulsating beats – a vibrant party experience where music meets magic and the night becomes unforgettable.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl">★</div>
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-red-600 mb-2">Bollywood Bash</h3>
+            <p class="text-gray-600">
+              Relive the magic of Bollywood on the dance floor a night filled with your favorite tracks, dazzling lights, and an atmosphere that screams celebration.
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-6 items-start">
+          <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl">★</div>
+          <div>
+            <h3 class="font-serif text-2xl font-bold text-red-600 mb-2">EDM Night</h3>
+            <p class="text-gray-600">
+              Dive into an ocean of electrifying beats and bass drops – an epic DJ night designed to ignite your soul and keep the party alive until sunrise.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-gradient-to-r from-red-600 to-blue-600 text-white text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">Share Your Celebration!</h2>
+      <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">
+       Feel the rhythm, feel the beat this weekend's biggest DJ bash is where the party never stops.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://www.instagram.com/thvrishiii7?igsh=MTVkczFzY20wY2xyZA==" class="bg-white text-red-600 text-lg px-8 py-4 rounded-lg">Share Your Photos</a>
+        <a href="http://www.linkedin.com/in/rushikeshjadhav2004"
+          class="border border-white text-white text-lg px-8 py-4 rounded-lg hover:bg-white hover:text-red-600 transition-transform">Join
+          the Community</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-white border-t text-center">
+    <h3 class="font-serif text-2xl font-bold text-red-600 mb-4">Never Miss Out on What's Happening Around You</h3>
+    <p class="text-gray-600 mb-6">
+      Get ready for the ultimate party experience  non-stop music, delicious drinks, and an atmosphere you'll never forget.
+    </p>
+    <div class="flex justify-center space-x-6 text-sm text-gray-500">
+      <span>© 2025 Rushikesh Jadhav</span>
+      <span>•</span>
+      <span>With &hearts;</span>
+    </div>
+  </footer>
+
+</body>
+
+</html>

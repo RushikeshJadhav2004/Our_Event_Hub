@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <link rel="icon" type="image/png" href="../uploads/eventhub.webp">
+
+    <title>Our Event Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+   <!-- Add this in your <head> or before </body> -->
+
+
+
+
+</head>
+
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    <section class=" bg-gradient-to-r from-blue-600 to-red-500 text-white overflow-hidden py-16">
+        <div class="container mx-auto px-4">
+            <a href="/">
+                <button class=" text-white  mb-6  flex items-center gap-2 hover:text-green-400">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Back to Home
+                </button>
+            </a>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div>
+                    <h1 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+                        Your guide to all events around you.
+                    </h1>
+                    <p class="text-xl opacity-90 max-w-2xl">
+                        Explore a wide range of events in your area and be part of every moment worth celebrating.
+                    </p>
+                </div>
+                <a href="/add"
+                    class="inline-flex items-center gap-2 bg-white text-black font-semibold px-6 py-3 rounded-lg hover:bg-gray-100 hover:text-black transition">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+  <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5"/>
+  <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+</svg>
+                    Add Event
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="py-8 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-4">
+                <div class="relative flex-1">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1110.5 3a7.5 7.5 0 016.15 13.65z" />
+                    </svg>
+                    <input type="text" placeholder="Search events by name or location..."
+                        class="w-full pl-10 pr-4 py-3 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 bg-white" />
+                </div>
+                <button
+                    class="flex  items-center gap-2 px-6 py-3 border border-green-900 rounded-lg bg-white hover:bg-gray-100 hover:text-black transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L14 14.414V19a1 1 0 01-.553.894l-4 2A1 1 0 019 21v-6.586L3.293 6.707A1 1 0 013 6V4z" />
+                    </svg>
+                    Filter Events
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Grid -->
+
+    <section class="py-12 ">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Event Card -->
+                <% if (events.length> 0) { %> <% events.forEach(event=> { %>
+
+                        <div
+                            class="bg-white text-gray-600 shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden  border border-green-800 rounded-xl shadow-lg">
+                            <div class="h-48 bg-gradient-to-br from-blue-100 to-red-100 relative">
+                                <% if (event.eventImage) { %>
+                                    <div class="absolute inset-0 bg-cover bg-center opacity-90"
+                                        style="background-image: url('<%= event.eventImage %>')"></div>
+                                    <% } %>
+
+                                        <span
+                                            class="absolute top-4 left-4 bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded">Featured</span>
+                                        <span
+                                            class="absolute top-4 right-4 bg-red-500 text-white text-xs font-semibold px-3 py-1 rounded">
+                                            <%= event.eventType %>
+                                        </span>
+                            </div>
+
+                            <div class="p-6">
+                                <h3 class="font-serif text-xl font-bold mb-1">
+                                    <%= event.title %>
+                                </h3>
+
+                                <!-- Location -->
+                                <p class="flex items-center gap-2 text-gray-500 mb-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+                                        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                                    </svg>
+                                    <%= event.location %>
+                                </p>
+
+                                <!-- Description -->
+                                <p class="text-sm text-gray-500 mb-3">
+                                    <%= event.description %>
+                                </p>
+
+                                <!-- Event details -->
+                                <div class="text-sm text-gray-500 space-y-1">
+                                    <p class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        <%= event.eventDate.toDateString() %>
+                                    </p>
+
+                                    <p class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        <%= event.startTime %> | <%= event.endTime %>
+                                    </p>
+
+                                    <p class="flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+                                            <path
+                                                d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4" />
+                                        </svg>
+                                        <%= event.expectedAttendance %> + Expected
+                                    </p>
+                                </div>
+
+                                <!-- Button -->
+                                <button
+                                    class="eventModalBtn mt-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 text-white text-lg py-2 w-full rounded-lg shadow-md text-center"
+                                    data-title="<%= event.title %>" data-description="<%= event.description %>"
+                                    data-time="<%= event.startTime %> | <%= event.endTime %>"
+                                    data-attendance="<%= event.expectedAttendance %>"
+                                    data-location="<%= event.location %>"
+                                    data-date="<%= event.eventDate.toDateString() %>"
+                                    data-website="<%= event.website %>" data-contactemail="<%= event.contactEmail %>"
+                                    data-contactphone="<%= event.contactPhone %>">
+                                    <i class="bi bi-eyeglasses"></i> View Details
+                                </button>
+
+                                </button>
+                            </div>
+                        </div>
+
+                        <% }) %>
+                            <% } else { %>
+                                <p>No events found.</p>
+                                <% } %>
+
+                                    <!-- Repeat similar cards for other events -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal -->
+    <div id="eventModalBox" class=" fixed inset-0 flex items-center justify-center bg-black/70 hidden z-50">
+        <div
+            class="bg-gray-900 border border-green-800 rounded-xl shadow-xl max-w-4xl w-full mx-4 overflow-y-auto max-h-[90vh]">
+
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-green-800">
+                
+                <h2 id="modalTitle" class="font-serif text-2xl text-green-400"></h2>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-6 space-y-6">
+
+                <!-- Event Details -->
+                <div>
+                    <h3 class="font-serif text-xl text-green-400 mb-2">Event Details</h3>
+                    <p id="modalDescription" class="text-gray-400"></p>
+
+                    <div class="grid md:grid-cols-2 gap-6 mt-4">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                ⏰
+                                <div>
+                                    <p class="font-medium text-white">Time</p>
+                                    <p id="modalTime" class="text-sm text-gray-400"></p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                👥
+                                <div>
+                                    <p class="font-medium text-white">Expected Attendance</p>
+                                    <p id="modalAttendance" class="text-sm text-gray-400"> </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-medium mb-1 text-white">Location</p>
+                                <p id="modalLocation" class="text-sm text-gray-400"></p>
+                            </div>
+                            <div>
+                                <p class="font-medium mb-1 text-white">Date</p>
+                                <p id="modalDate" class="text-sm text-gray-400"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <p class="font-medium mb-2 text-white">Tags</p>
+                        <div id="modalTags" class="flex flex-wrap gap-2">
+                            <span class="bg-green-700 px-3 py-1 rounded-full text-sm"></span>
+                            <span class="bg-green-700 px-3 py-1 rounded-full text-sm"></span>
+                            <span class="bg-green-700 px-3 py-1 rounded-full text-sm"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-green-800">
+                    <h3 class="font-serif text-xl text-green-400 mb-2">📩 Contact</h3>
+                    <p class="text-gray-400 mb-1">Email: <span id="modalContactEmail"></span></p>
+                    <p class="text-gray-400 mb-1">Phone: <span id="modalContactPhone"></span></p>
+                    <p class="text-gray-400 mb-1">Website: <a id="modalWebsite" href="#"
+                            class="text-green-400 hover:underline"></a></p>
+                </div>
+
+                <!-- Get in Touch Form -->
+                <div class="bg-gray-900 border border-green-800 rounded-xl shadow-lg">
+                    <div class="p-6 border-b border-green-800 bg-green-900/10">
+                        <h2 class="font-serif text-2xl text-green-400 flex items-center gap-2">📩 Get in Touch</h2>
+                        <p class="text-gray-400 text-sm">Have questions about this event? Send us a message!</p>
+                    </div>
+                    <div class="p-6">
+
+
+<form id="contactForm" class="space-y-6">
+  <div class="grid md:grid-cols-2 gap-4">
+    <div class="space-y-2">
+      <label for="name" class="text-sm font-medium text-white">Your Name</label>
+      <input id="name" name="from_name" type="text" placeholder="Enter your full name" class="w-full text-white px-4 py-2 rounded-lg bg-black border border-green-800 focus:ring-2 focus:ring-green-600 outline-none" required>
+    </div>
+    <div class="space-y-2">
+      <label for="email" class="text-sm font-medium text-white">Email Address</label>
+      <input id="email" name="reply_to" type="email" placeholder="your.email@example.com" class="w-full text-white px-4 py-2 rounded-lg bg-black border border-green-800 focus:ring-2 focus:ring-green-600 outline-none" required>
+    </div>
+  </div>
+
+  <div class="space-y-2">
+    <label for="subject" class="text-sm font-medium text-white">Subject</label>
+    <input id="subject" name="subject" type="text" placeholder="Subject" class="w-full text-white px-4 py-2 rounded-lg bg-black border border-green-800 focus:ring-2 focus:ring-green-600 outline-none" required>
+  </div>
+
+  <div class="space-y-2">
+    <label for="message" class="text-sm font-medium text-white">Your Message</label>
+    <textarea id="message" name="message" rows="5" placeholder="Tell us what you'd like to know..." class="w-full text-white px-4 py-2 rounded-lg bg-black border border-green-800 focus:ring-2 focus:ring-green-600 outline-none" required></textarea>
+  </div>
+
+  <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 text-white text-lg py-3 rounded-lg shadow-md">Send Message</button>
+</form>
+
+
+
+
+                       
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                <!-- Quick Info -->
+                <div class="bg-gray-800 p-4 rounded-lg border border-green-800">
+                    <h3 class="font-serif text-xl text-green-400 mb-2">Quick Info</h3>
+                    <ul class="text-gray-400 text-sm list-disc list-inside space-y-1">
+                        <li>Free admission for all ages</li>
+                        <li>Food vendors on-site</li>
+                        <li>Parking available nearby</li>
+                        <li>Wheelchair accessible</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="flex justify-end p-6 border-t border-green-800">
+                <button id="closeModalBtnFooter"
+                    class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-gray-200">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-green-700 mb-4">
+                Don't See Your Event?
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+Host something amazing? Share your event and connect with your audience.            </p>
+            <a href="/add"
+                class="inline-block  px-8 py-4 bg-gradient-to-r from-green-600 to-green-800 hover:from-green-500 hover:to-green-700 text-white text-lg py-2 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
+                
+                Add
+                Your Event</a>
+                 <a href="/"
+                class="inline-block  px-8 py-4 ms-3 bg-white text-green-700 border border-green-700 text-lg py-2 rounded-lg shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1">
+                Go To Home</a>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- email js-->
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  emailjs.init("o-ncJ7rTcBeUGhWOd");
+
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm("service_k08nn3n", "template_594b0bp", this)
+      .then(() => {
+        alert("✅ Message sent successfully!");
+        this.reset();
+      })
+      .catch((error) => {
+        console.error("❌ Error sending message:", error);
+        alert("❌ Something went wrong. Check console.");
+      });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal Script -->
+    <!-- Script -->
+    <script>
+        const modalBox = document.getElementById('eventModalBox');
+        const closeBtns = [document.getElementById('closeModalBtn'), document.getElementById('closeModalBtnFooter')];
+
+        // Elements inside modal
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalTime = document.getElementById('modalTime');
+        const modalAttendance = document.getElementById('modalAttendance');
+        const modalLocation = document.getElementById('modalLocation');
+        const modalTags = document.getElementById('modalTags');
+        const modaldate = document.getElementById('modalDate');
+        const modalwebsite = document.getElementById('modalWebsite');
+        const modalContactEmail = document.getElementById('modalContactEmail');
+        const modalContactPhone = document.getElementById('modalContactPhone');
+
+        // Open modal for each button
+        document.querySelectorAll('.eventModalBtn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                modalTitle.textContent = btn.dataset.title;
+                modalDescription.textContent = btn.dataset.description;
+                modalTime.textContent = btn.dataset.time;
+                modalAttendance.textContent = btn.dataset.attendance;
+                modalLocation.textContent = btn.dataset.location;
+                modalTags.textContent = btn.dataset.tags;
+                modaldate.textContent = btn.dataset.date;
+                modalWebsite.textContent = btn.dataset.website;
+                modalContactEmail.textContent = btn.dataset.contactemail;
+                modalContactPhone.textContent = btn.dataset.contactphone;
+
+                modalBox.classList.remove('hidden');
+            });
+        });
+
+        // Close modal
+        closeBtns.forEach(btn => btn.addEventListener('click', () => modalBox.classList.add('hidden')));
+        modalBox.addEventListener('click', e => { if (e.target === modalBox) modalBox.classList.add('hidden'); });
+    </script>
+</body>
+
+</html>
