@@ -59,7 +59,7 @@ EMAILJS_PUBLIC_KEY=your_emailjs_public_key
 
 ```
 
-##🛠 Usage
+## 🛠 Usage ##
 
 Browse events happening near you.
 
@@ -70,7 +70,7 @@ Contact organizers directly via phone, email, or website.
 Add your own event with details: name, date, time, location, description, website.
 
 
-##✨ Author
+## ✨Author ##
 
 **Rushikesh Jadhav – Full-Stack Developer**
 
